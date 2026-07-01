@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Waply | Request an Estimate</title>
+  <meta name="description" content="Request a scope-based Wi-Fi estimate from Waply.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="site-shell">
+    <header class="sub-hero">
+      <nav class="topbar">
+        <a class="brand-lockup" href="index.html" aria-label="Waply home">
+          <img class="brand-mark-image" src="waply-logo.png" alt="Waply logo">
+        </a>
+        <div class="nav-links">
+          <a href="index.html">About</a>
+          <a href="services.html">Services</a>
+          <a class="is-active" href="estimate.html">Request an Estimate</a>
+        </div>
+      </nav>
+      <div class="sub-hero-copy">
+        <p class="eyebrow">Request an Estimate</p>
+        <h1>Tell Waply about the space, the layout, and the wireless problem you need solved.</h1>
+        <p class="lede">Each estimate is reviewed against the actual scope, square footage, floor count, and whether the work needs remote planning, on-site validation, or both.</p>
+      </div>
+    </header>
+
+    <main>
+      <section class="section contact">
+        <div class="contact-card estimate-shell">
+          <div class="estimate-intro">
+            <p class="eyebrow">Scope-Based Estimate</p>
+            <h2>Start with the site details.</h2>
+            <p>
+              Waply does not use one fixed number for every project. The estimate is based on the type of site,
+              the size of the space, the number of floors, and whether the work needs planning, live validation,
+              or both.
+            </p>
+            <ul class="estimate-points">
+              <li>Residential and commercial projects</li>
+              <li>Remote heat maps, on-site surveys, or combined scope</li>
+              <li>Reviewed after layout and problem details are provided</li>
+            </ul>
+          </div>
+          <form class="estimate-form">
+            <label>
+              <span>Name / Company Name</span>
+              <input type="text" name="name_company" placeholder="Your name or company name">
+            </label>
+            <label>
+              <span>Email</span>
+              <input type="email" name="email" placeholder="name@example.com">
+            </label>
+            <label>
+              <span>Phone Number</span>
+              <input type="tel" name="phone" placeholder="(555) 555-5555">
+            </label>
+            <label>
+              <span>Residential or Commercial</span>
+              <select name="property_type">
+                <option>Residential</option>
+                <option>Commercial</option>
+              </select>
+            </label>
+            <label>
+              <span>Location</span>
+              <input type="text" name="location" placeholder="City or full property address">
+            </label>
+            <label>
+              <span>Approximate Square Footage</span>
+              <input type="text" name="square_footage" placeholder="Example: 3,200 sq ft">
+            </label>
+            <label>
+              <span>Number of Floors</span>
+              <input type="text" name="floors" placeholder="Example: 2">
+            </label>
+            <label>
+              <span>Service Needed</span>
+              <select name="service_type">
+                <option>Remote heat map</option>
+                <option>On-site survey</option>
+                <option>Both</option>
+              </select>
+            </label>
+            <label class="full">
+              <span>What Wi-Fi issue are you trying to solve?</span>
+              <textarea name="problem" rows="5" placeholder="Describe dead zones, weak coverage, current access point issues, or what you want validated."></textarea>
+            </label>
+            <button class="button primary full-button" type="button">Request Estimate</button>
+          </form>
+          <p class="contact-note">This form is currently a front-end layout and can be wired to a live submission method once the final contact channel is settled.</p>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
