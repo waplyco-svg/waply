@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <script src="estimate.js" defer></script>
 </head>
 <body>
   <div class="site-shell">
@@ -46,11 +47,15 @@
               <li>Remote heat maps, on-site surveys, or combined scope</li>
               <li>Reviewed after layout and problem details are provided</li>
             </ul>
+            <p class="submission-note">
+              This intake now validates your request details and prepares a clean summary for follow-up.
+              A final public delivery endpoint still needs to be attached to complete automated submission.
+            </p>
           </div>
-          <form class="estimate-form">
+          <form class="estimate-form" id="estimate-form" novalidate>
             <label>
               <span>Name / Company Name</span>
-              <input type="text" name="name_company" placeholder="Your name or company name">
+              <input type="text" name="name_company" placeholder="Your name or company name" required>
             </label>
             <label>
               <span>Email</span>
@@ -62,26 +67,26 @@
             </label>
             <label>
               <span>Residential or Commercial</span>
-              <select name="property_type">
+              <select name="property_type" required>
                 <option>Residential</option>
                 <option>Commercial</option>
               </select>
             </label>
             <label>
               <span>Location</span>
-              <input type="text" name="location" placeholder="City or full property address">
+              <input type="text" name="location" placeholder="City or full property address" required>
             </label>
             <label>
               <span>Approximate Square Footage</span>
-              <input type="text" name="square_footage" placeholder="Example: 3,200 sq ft">
+              <input type="text" name="square_footage" placeholder="Example: 3,200 sq ft" required>
             </label>
             <label>
               <span>Number of Floors</span>
-              <input type="text" name="floors" placeholder="Example: 2">
+              <input type="text" name="floors" placeholder="Example: 2" required>
             </label>
             <label>
               <span>Service Needed</span>
-              <select name="service_type">
+              <select name="service_type" required>
                 <option>Remote heat map</option>
                 <option>On-site survey</option>
                 <option>Both</option>
@@ -89,11 +94,12 @@
             </label>
             <label class="full">
               <span>What Wi-Fi issue are you trying to solve?</span>
-              <textarea name="problem" rows="5" placeholder="Describe dead zones, weak coverage, current access point issues, or what you want validated."></textarea>
+              <textarea name="problem" rows="5" placeholder="Describe dead zones, weak coverage, current access point issues, or what you want validated." required></textarea>
             </label>
-            <button class="button primary full-button" type="button">Request Estimate</button>
+            <div class="form-status full" id="form-status" aria-live="polite"></div>
+            <button class="button primary full-button" type="submit">Prepare Estimate Request</button>
           </form>
-          <p class="contact-note">This form is currently a front-end layout and can be wired to a live submission method once the final contact channel is settled.</p>
+          <p class="contact-note">Required fields are validated here. The request summary is then staged on a confirmation page until the final automated submission destination is attached.</p>
         </div>
       </section>
     </main>

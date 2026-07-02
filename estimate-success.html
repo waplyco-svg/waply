@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Waply | Estimate Request Ready</title>
+  <meta name="description" content="Review your prepared Waply estimate request details.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="site-shell">
+    <header class="sub-hero">
+      <nav class="topbar">
+        <a class="brand-lockup" href="index.html" aria-label="Waply home">
+          <img class="brand-mark-image" src="waply-logo.png" alt="Waply logo">
+        </a>
+        <div class="nav-links">
+          <a href="index.html">About</a>
+          <a href="services.html">Services</a>
+          <a class="is-active" href="estimate.html">Request an Estimate</a>
+        </div>
+      </nav>
+      <div class="sub-hero-copy">
+        <p class="eyebrow">Estimate Request Ready</p>
+        <h1>Your request details are packaged and ready for follow-up.</h1>
+        <p class="lede">This confirmation page shows exactly what was captured from the intake form.</p>
+      </div>
+    </header>
+
+    <main>
+      <section class="section contact">
+        <div class="contact-card success-card">
+          <div class="success-summary">
+            <p class="eyebrow">Prepared Summary</p>
+            <h2>Estimate request details</h2>
+            <dl class="request-summary" id="request-summary"></dl>
+          </div>
+          <div class="success-next">
+            <p class="eyebrow">Current Status</p>
+            <h2>Frontend flow is live. Delivery endpoint is next.</h2>
+            <p>
+              The intake no longer dead-ends. It validates the request and prepares a clean handoff summary.
+              To complete automated delivery, the site still needs a final public submission destination such as
+              a form backend, inbox endpoint, or phone-based intake flow.
+            </p>
+            <div class="hero-actions">
+              <a class="button primary" href="estimate.html">Start Another Request</a>
+              <a class="button secondary" href="services.html">Review Services</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const STORAGE_KEY = "waply-estimate-request";
+    const summary = document.getElementById("request-summary");
+    const request = JSON.parse(sessionStorage.getItem(STORAGE_KEY) || "{}");
+    const fields = [
+      ["Name / Company", request.nameCompany],
+      ["Email", request.email || "Not provided"],
+      ["Phone", request.phone || "Not provided"],
+      ["Site Type", request.propertyType],
+      ["Location", request.location],
+      ["Square Footage", request.squareFootage],
+      ["Floors", request.floors],
+      ["Service Needed", request.serviceType],
+      ["Wi-Fi Issue", request.problem]
+    ];
+
+    if (!request.nameCompany) {
+      window.location.href = "estimate.html";
+    } else {
+      summary.innerHTML = fields.map(([label, value]) => (
+        `<div class="request-row"><dt>${label}</dt><dd>${value}</dd></div>`
+      )).join("");
+    }
+  </script>
+</body>
+</html>
